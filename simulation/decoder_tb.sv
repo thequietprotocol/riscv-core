@@ -30,7 +30,7 @@ module decoder_tb;
     instr = 32'h00510093; #10;
     $display("ADDI: opcode=%b rd=%0d rs1=%0d imm=%0d", opcode, rd, rs1, imm);
 
-    // Test 2: ADD R3, R1, R2 - funct7 | rs2 | rs1 | f3  | rd  | opcode
+    // Test 2: ADD R1, R1, R2 - funct7 | rs2 | rs1 | f3  | rd  | opcode
     instr = 32'h002080B3; #10;
     $display("ADD: opcode=%b rd=%0d rs1=%0d rs2=%0d", opcode, rd, rs1, rs2);
 
