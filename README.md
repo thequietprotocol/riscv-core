@@ -1,5 +1,3 @@
-# RISC-V Core
-
 Towards an out-of-order RISC-V RV32I processor in SystemVerilog, targeting the Basys 3 FPGA (Xilinx Artix-7)
 
 ## Goal
@@ -33,3 +31,8 @@ Build a fully functional out-of-order processor from scratch, progressing throug
 ## ISA Support
 
 RV32I base integer instruction set
+
+## References
+- S. L. Harris and D. Harris, Digital Design and Computer Architecture: RISC-V Edition
+- D. A. Patterson and J. L. Hennessy, *Computer Organization and Design: The Hardware/Software Interface, RISC‑V Edition
+- J. L. Hennessy and D. A. Patterson, Computer Architecture: A Quantitative Approach
