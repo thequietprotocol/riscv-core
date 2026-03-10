@@ -21,12 +21,12 @@ logic [WIDTH-1:0] RF [0:DEPTH-1];
 
 // Synchronous write
 always_ff @(posedge clk) begin
-    if(we && (write_addr != 'b0))
+    if(we && (write_addr != '0))
         RF[write_addr] <= write_data;
 end
 
 // Async read - TODO: read-after-write solution
-assign read_data1 = (read_addr1 == 'b0)? 'b0: RF[read_addr1];  
-assign read_data2 = (read_addr2 == 'b0)? 'b0: RF[read_addr2];
+assign read_data1 = (read_addr1 == '0)? '0: RF[read_addr1];  
+assign read_data2 = (read_addr2 == '0)? '0: RF[read_addr2];
 
 endmodule

@@ -3,6 +3,8 @@
 // RV32I controller
 // Generates control signals for the datapath
 
+import riscv_define::*;
+
 module controller(
     input opcode_t opcode, 
     input funct3_t funct3,
@@ -13,7 +15,7 @@ module controller(
 always_comb begin
     unique case(opcode)
 
-        OP_REG: alu_op = decode_op_R(funct7, funct3);
+        OP_REG: aluOp = decode_op_R(funct7, funct3);
 //        OP_IMM: 
 //        OP_LOAD: 
 //        OP_JALR: 
@@ -22,12 +24,13 @@ always_comb begin
 //        OP_AUIPC: 
 //        OP_LUI: 
 //        OP_JAL: 
+        default: aluOp = ALU_ADD;
 
     endcase
 end
 
 // TODO: Move to a package with more functions
-function aluop_t decode_op_R(logic[6:0] funct7, funct3_t f3)
+function aluop_t decode_op_R(logic[6:0] funct7, funct3_t f3);
     unique case(f3)
         F3_ADD_SUB : decode_op_R = (funct7[5] == 1)? ALU_SUB: ALU_ADD;
         F3_SLL     : decode_op_R = ALU_SLL;

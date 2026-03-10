@@ -4,6 +4,8 @@
 // ADD, SUB, SLL, SLT, SLTU, XOR, SRL, SRA, OR, AND instructions
 // Zero flag output
 
+import riscv_define::*;
+
 module alu #(
     parameter WIDTH=32
 )(  
@@ -19,6 +21,7 @@ always_comb begin
     case(aluOp)
         ALU_ADD : aluOut = aluIn1 + aluIn2;
         ALU_SUB : aluOut = aluIn1 - aluIn2;
+        ALU_SLL : aluOut = aluIn1 << aluIn2[4:0];
         ALU_SLT : aluOut = ($signed(aluIn1) < $signed(aluIn2))? 1: 0;
         ALU_SLTU: aluOut = (aluIn1 < aluIn2)? 1: 0;
         ALU_XOR : aluOut = aluIn1 ^ aluIn2;
